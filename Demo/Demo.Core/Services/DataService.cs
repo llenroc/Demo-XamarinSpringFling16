@@ -28,7 +28,7 @@ namespace Demo.Core.Services
         /// Constructor con base a MvvmCross y la inyección de dependencias
         /// </summary>
         /// <param name="webApiService">WebApiService para inyeccion de dependencias</param>
-        public MusicService(IWebApiService webApiService)
+        public DataService(IWebApiService webApiService)
         {
             WebApiService = webApiService;
         }
@@ -102,7 +102,6 @@ namespace Demo.Core.Services
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex.Message);
-                    throw new JsonException(TextSource.GetText(nameof(Settings.CommonText.MsgErrorException)));
                 }
             }
 
