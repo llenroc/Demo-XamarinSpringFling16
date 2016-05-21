@@ -85,27 +85,15 @@ namespace Demo.Core.Services.WebApi
         {
             if (!NetworkService.IsConnected)
                 return null;
-            // throw new HttpRequestException(TextSource.GetText(nameof(Settings.CommonText.WebServiceNoConnection)), null);
-
             using (HttpClient http = new HttpClient(new NativeMessageHandler()))
             {
                 try
                 {
                     HttpResponseMessage message = await http.GetAsync(uri);
-                    //if (message.StatusCode == HttpStatusCode.NotFound)
-                    //{
-                    //    if (NetworkService.IsConnected)
-                    //        return null;
-                    //    //throw new HttpRequestException(TextSource.GetText(nameof(Settings.CommonText.WebServiceNoConnection)));
-                    //    else
-                    //        return null;
-                    //    //throw new HttpRequestException(TextSource.GetText(nameof(Settings.CommonText.WebServiceNotFoundConnection)));
-                    //}
-                    if (message.IsSuccessStatusCode)
-                    {
-                        return await message.Content.ReadAsStringAsync();
-                    }
 
+                    if (message.IsSuccessStatusCode)
+                        return await message.Content.ReadAsStringAsync();
+                    
                     return null;
 
                 }
