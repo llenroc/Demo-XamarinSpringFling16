@@ -47,6 +47,13 @@ namespace Demo.Droid.Views.Fragments
             return view;
         }
 
+		public override void OnDestroyView()
+		{
+			// Borramos el contenido de nuestra lista Tracks al navegar a otra pantalla
+			base.OnDestroyView();
+			this.ViewModel.Tracks = null;
+		}
+
         private void SearchView_QueryTextSubmit(object sender, SearchView.QueryTextSubmitEventArgs e)
         {            
             ViewModel.TrackParam = trackSearchView.Query;

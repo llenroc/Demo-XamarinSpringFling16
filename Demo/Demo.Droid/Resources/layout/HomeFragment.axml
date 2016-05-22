@@ -16,27 +16,27 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="8pt"
-            local:MvxBind="Visibility Visibility(IsErrorMsgVisible)"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            local:MvxBind="Visibility InvertedVisibility(IsErrorMsgVisible)"
             android:text="Artistas del momento"
-            android:layout_weight="1"
-            android:textColor="@color/black"
+            android:layout_weight="0.5"
             android:paddingLeft="@dimen/element_margin_small" />
         <android.support.v7.widget.RecyclerView
             android:id="@+id/artistListView"
             android:orientation="horizontal"
             local:MvxBind="Visibility InvertedVisibility(IsErrorMsgVisible)"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:layout_height="0dp"
             android:layout_width="match_parent" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Lo que está sonando"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             local:MvxBind="Visibility InvertedVisibility(IsErrorMsgVisible)"
-            android:textSize="8pt"
-            android:layout_weight="1"
-            android:textColor="@color/black"
+            android:layout_weight="0.5"
             android:paddingLeft="@dimen/element_margin_small" />
         <android.support.v7.widget.RecyclerView
             android:id="@+id/trackListView"

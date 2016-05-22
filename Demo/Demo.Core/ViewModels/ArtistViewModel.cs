@@ -32,7 +32,7 @@ namespace Demo.Core.ViewModels
         public ObservableCollection<MArtist> Artists
         {
             get { return artists; }
-            set { SetProperty(ref artists, value); }
+            set{ SetProperty(ref artists, value); }
         }
 
         private MArtist selectedArtist;

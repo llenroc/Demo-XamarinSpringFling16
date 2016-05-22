@@ -36,7 +36,6 @@ namespace Demo.Droid.Views.Fragments
 		{
             var view = base.OnCreateView(inflater, container, savedInstanceState);
 
-            
             //Inflate the recyclerviews
             loader = view.FindViewById<View>(Resource.Id.loader);
             progress = view.FindViewById<ProgressBar>(Resource.Id.progressBar);
@@ -47,6 +46,13 @@ namespace Demo.Droid.Views.Fragments
 
             return view;
         }
+
+		public override void OnDestroyView()
+		{
+			// Borramos el contenido de nuestra lista Albums al navegar a otra pantalla
+			base.OnDestroyView();
+			this.ViewModel.Albums = null;
+		}
 
         private void SearchView_QueryTextSubmit(object sender, SearchView.QueryTextSubmitEventArgs e)
         {

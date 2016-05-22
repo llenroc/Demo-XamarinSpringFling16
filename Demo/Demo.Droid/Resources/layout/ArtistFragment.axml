@@ -13,6 +13,7 @@
         android:layout_height="match_parent">
         <SearchView
             android:layout_width="match_parent"
+            android:queryHint="Ingresa una artista..."
             android:id="@+id/artistSearchView"
             android:layout_height="wrap_content" />
         <Mvx.MvxListView

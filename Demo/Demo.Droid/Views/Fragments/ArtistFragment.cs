@@ -44,6 +44,13 @@ namespace Demo.Droid.Views.Fragments
             return view;
         }
 
+		public override void OnDestroyView()
+		{
+			// Borramos el contenido de nuestra lista Artistas al navegar a otra pantalla
+			base.OnDestroyView();
+			this.ViewModel.Artists = null;
+		}
+
         private void SearchView_QueryTextSubmit(object sender, SearchView.QueryTextSubmitEventArgs e)
         {            
             ViewModel.ParamSearch = searchView.Query;
@@ -64,6 +71,7 @@ namespace Demo.Droid.Views.Fragments
                 loader.Visibility = ViewStates.Visible;
             else
                 loader.Visibility = ViewStates.Gone;
-        }        
+        }      
+
     }
 }
