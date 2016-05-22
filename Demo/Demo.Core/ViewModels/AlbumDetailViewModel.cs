@@ -109,6 +109,7 @@ namespace Demo.Core.ViewModels
             {
                 Album = new MAlbum();
                 Album = data;
+				Album.Image = AlbumParam.Image;
             }
             else
             {

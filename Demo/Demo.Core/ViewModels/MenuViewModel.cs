@@ -32,6 +32,15 @@ namespace Demo.Core.ViewModels
             get { return artistCommand ?? (artistCommand = new MvxCommand(() => ShowViewModel<ArtistViewModel>())); }
         }
 
+		/// <summary>
+		/// Navega a la pantalla Álbumes.
+		/// </summary>
+		private MvxCommand albumCommand;
+		public MvxCommand AlbumCommand
+		{
+			get { return albumCommand ?? (albumCommand = new MvxCommand(() => ShowViewModel<AlbumViewModel>())); }
+		}
+
         /// <summary>
         /// Navega a la pantalla Canciones.
         /// </summary>

@@ -105,7 +105,6 @@ namespace Demo.Core.ViewModels
             {
                 Artist = new MArtist();
                 Artist = data;
-                Artist.Image = ArtistParam.Image;
             }
             else
             {

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/albumDetailFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="10">
+        <include
+            layout="@layout/toolbar" />
+        <FFImageLoading.Views.ImageViewAsync
+            android:id="@+id/albumImageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:paddingTop="@dimen/element_margin_small" />
+        <TextView
+            android:text="Descripción"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fillViewport="true">
+            <TextView
+                android:id="@+id/albumDescTextView"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                local:MvxBind="Text Album.Wiki.Content, Mode=OneWay"
+                android:padding="10dp" />
+        </ScrollView>
+        <TextView
+            android:text="Lista de canciones"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp" />
+        <Mvx.MvxListView
+            android:id="@+id/albumsListView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingTop="@dimen/element_margin_small"
+            local:MvxBind="ItemsSource Album.Tracks, Mode=OneWay;"
+            android:layout_weight="3"
+            local:MvxItemTemplate="@layout/list_tracks_album_item" />
+    </LinearLayout>
+    <include
+        layout="@layout/loader" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_marginLeft="@dimen/element_margin_medium"
+        android:layout_marginRight="@dimen/element_margin_medium"
+        local:MvxBind="Text ErrorMsg; Visibility IsErrorMsgVisible"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

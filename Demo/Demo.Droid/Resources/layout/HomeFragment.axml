@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar" />
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="8pt"
+            local:MvxBind="Visibility Visibility(IsErrorMsgVisible)"
+            android:text="Artistas del momento"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:paddingLeft="@dimen/element_margin_small" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/artistListView"
+            android:orientation="horizontal"
+            local:MvxBind="Visibility InvertedVisibility(IsErrorMsgVisible)"
+            android:layout_weight="4"
+            android:layout_height="0dp"
+            android:layout_width="match_parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lo que está sonando"
+            local:MvxBind="Visibility InvertedVisibility(IsErrorMsgVisible)"
+            android:textSize="8pt"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:paddingLeft="@dimen/element_margin_small" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/trackListView"
+            android:orientation="horizontal"
+            local:MvxBind="Visibility InvertedVisibility(IsErrorMsgVisible)"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/element_margin_medium"
+        android:layout_marginRight="@dimen/element_margin_medium"
+        local:MvxBind="Visibility Visibility(IsErrorMsgVisible)"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_centerInParent="true" />
+    <include
+        layout="@layout/loader" />
+</RelativeLayout>

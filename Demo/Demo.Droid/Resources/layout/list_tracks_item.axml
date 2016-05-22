@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:paddingBottom="10dp">
+    <FFImageLoading.Views.ImageViewAsync
+        android:id="@+id/trackImageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:padding="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        local:MvxBind="ImageUrl Image" />
+    <TextView
+        android:id="@+id/trackTextView"
+        android:layout_toRightOf="@id/trackImageView"
+        local:MvxBind="Text Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingTop="20dp" />
+    <TextView
+        android:id="@+id/artistTextView"
+        android:layout_toRightOf="@id/trackImageView"
+        android:layout_below="@id/trackTextView"
+        local:MvxBind="Text ArtistName"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingTop="20dp" />
+</RelativeLayout>

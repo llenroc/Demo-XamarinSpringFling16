@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar" />
+    <LinearLayout
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <SearchView
+            android:layout_width="match_parent"
+            android:id="@+id/artistSearchView"
+            android:layout_height="wrap_content" />
+        <Mvx.MvxListView
+            android:id="@+id/artistsListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/element_margin_small"
+            local:MvxBind="ItemsSource Artists, Mode=OneWay; SelectedItem SelectedArtist, Mode=TwoWay; ItemClick SelectedArtistCommand"
+            local:MvxItemTemplate="@layout/list_artists_item" />
+    </LinearLayout>
+    <include
+        layout="@layout/loader" />
+</RelativeLayout>
