@@ -1,0 +1,59 @@
+﻿<local:BaseView
+    x:Class="Demo.UWP.Views.TrackDetailView"
+    xmlns:views="using:MvvmCross.WindowsUWP.Views"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Demo.UWP.Views"  
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Padding="12,12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Track.Name}" 
+                   Style="{StaticResource HeaderTextBlockStyle}"
+                   Margin="0,0,0,12"/>
+            <Grid Height="300"
+                  Grid.Row="1">
+                <Grid.Background>
+                    <ImageBrush ImageSource="{Binding TrackParam.Image, Mode=OneWay}"
+                                Stretch="Fill"/>
+                </Grid.Background>
+            </Grid>
+            <TextBlock Style="{StaticResource BaseTextBlockStyle}"
+                       TextWrapping="Wrap"
+                       Height="Auto"
+                       Grid.Row="2"
+                       FontSize="20"
+                       Margin="12">
+                    <Run Text="Artista:" Foreground="DarkBlue" />
+                    <Run Text="{Binding Track.Artist.Name}" Foreground="DarkGray"/>
+                    <LineBreak/>
+                    <Run Text="Sitio web:" Foreground="DarkBlue"/>
+                    <Run Text="{Binding Track.Artist.Url}" Foreground="DarkGray" />
+                    <LineBreak/>
+                    <Run Text="Reproducciones:" Foreground="DarkBlue"/>
+                    <Run Text="{Binding Track.Listeners}" Foreground="DarkGray"/>
+            </TextBlock>
+        </Grid>
+        <Grid Visibility="{Binding IsLoading, Converter={StaticResource boolToVisConverter}}">
+            <Grid.Background>
+                <SolidColorBrush Color="#FFDADADA" Opacity="0.6 "/>
+            </Grid.Background>
+
+            <ProgressRing IsActive="{Binding IsLoading}"
+                          Height="60"
+                          VerticalAlignment="Center"
+                          Width="60"
+                          Foreground="#FFF80B0B"/>
+
+        </Grid>
+    </Grid>
+</local:BaseView>

@@ -3,6 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Demo.UWP"
+    xmlns:converters="using:Demo.UWP.Converters"
     RequestedTheme="Light">
-
+    <Application.Resources>
+        <converters:NativeVisibilityConverter x:Key="boolToVisConverter"/>
+        <converters:NativeInvVisibilityConverter x:Key="boolToVisInvConverter"/>
+    </Application.Resources>
 </Application>

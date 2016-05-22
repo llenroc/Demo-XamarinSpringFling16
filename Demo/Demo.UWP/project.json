@@ -1,6 +1,11 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "Microsoft.Xaml.Behaviors.Uwp.Managed": "1.1.0",
+    "MvvmCross.Plugin.Messenger": "4.1.5",
+    "MvvmCross.Plugin.Network": "4.1.5",
+    "MvvmCross.Plugin.ResourceLoader": "4.1.5",
+    "MvvmCross.Plugin.Visibility": "4.1.5",
     "MvvmCross.StarterPack": "4.1.5"
   },
   "frameworks": {

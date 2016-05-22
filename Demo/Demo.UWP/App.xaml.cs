@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvvmCross.Platform;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -72,7 +73,11 @@ namespace Demo.UWP
                 // Cuando no se restaura la pila de navegación, navegar a la primera página,
                 // configurando la nueva página pasándole la información requerida como
                 //parámetro de navegación
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                var setup = new Setup(rootFrame);
+                setup.Initialize();
+
+                var start = Mvx.Resolve<MvvmCross.Core.ViewModels.IMvxAppStart>();
+                start.Start();
             }
             // Asegurarse de que la ventana actual está activa.
             Window.Current.Activate();

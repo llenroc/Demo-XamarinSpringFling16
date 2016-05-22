@@ -1,0 +1,57 @@
+﻿<local:BaseView
+    x:Class="Demo.UWP.Views.ArtistDetailView"
+    xmlns:views="using:MvvmCross.WindowsUWP.Views"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Demo.UWP.Views"  
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Padding="12,12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Artist.Name}" 
+                   Style="{StaticResource HeaderTextBlockStyle}"
+                   Margin="0,0,0,12"/>
+            <Grid Height="300"
+                  Grid.Row="1">
+                <Grid.Background>
+                    <ImageBrush ImageSource="{Binding Artist.Image}"
+                                        Stretch="Fill"/>
+                </Grid.Background>
+            </Grid>
+            <TextBlock Style="{StaticResource BaseTextBlockStyle}"
+                       TextWrapping="Wrap"
+                       Grid.Row="2"
+                       Height="Auto"
+                       Text="Descripción" FontSize="20"
+                       Margin="0,12"/>
+            <ScrollViewer Height="Auto"
+                          Grid.Row="3">
+                <TextBlock TextWrapping="Wrap"
+                           Text="{Binding Artist.Biography.Content}" FontSize="16"/>
+
+            </ScrollViewer>
+        </Grid>
+        <Grid Visibility="{Binding IsLoading, Converter={StaticResource boolToVisConverter}}">
+            <Grid.Background>
+                <SolidColorBrush Color="#FFDADADA" Opacity="0.6 "/>
+            </Grid.Background>
+
+            <ProgressRing IsActive="{Binding IsLoading}"
+                          Height="60"
+                          VerticalAlignment="Center"
+                          Width="60"
+                          Foreground="#FFF80B0B"/>
+
+        </Grid>
+    </Grid>
+</local:BaseView>
