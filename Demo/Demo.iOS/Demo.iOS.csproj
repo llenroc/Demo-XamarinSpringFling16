@@ -98,6 +98,24 @@
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
     <Compile Include="Bootstrap\ConnectivityPluginBootstrap.cs" />
+    <InterfaceDefinition Include="Views\Base\BaseViewController.xib" />
+    <Compile Include="Views\Base\BaseViewController.cs" />
+    <Compile Include="Views\Base\BaseViewController.designer.cs">
+      <DependentUpon>BaseViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Base\ShellView.cs" />
+    <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
+    <Compile Include="Views\HomeView.cs" />
+    <Compile Include="Views\ArtistView.cs" />
+    <Compile Include="Views\ArtistDetailView.cs" />
+    <Compile Include="Views\AlbumView.cs" />
+    <Compile Include="Views\AlbumDetailView.cs" />
+    <Compile Include="Views\TrackView.cs" />
+    <Compile Include="Views\TrackDetailView.cs" />
+    <Compile Include="Views\Menu\MenuView.cs" />
+    <Compile Include="Services\Message\TouchDialogService.cs" />
+    <Compile Include="Services\Network\TouchNetworkService.cs" />
+    <Compile Include="Services\Network\Reachability.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\ResourceLoaderPluginBootstrap.cs" />
   </ItemGroup>
@@ -106,21 +124,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="MvvmCross.iOS">
-      <HintPath>..\packages\MvvmCross.Core.4.1.4\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Core">
-      <HintPath>..\packages\MvvmCross.Core.4.1.4\lib\Xamarin.iOS10\MvvmCross.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Binding.iOS">
-      <HintPath>..\packages\MvvmCross.Binding.4.1.4\lib\Xamarin.iOS10\MvvmCross.Binding.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Binding">
-      <HintPath>..\packages\MvvmCross.Binding.4.1.4\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
-    </Reference>
-    <Reference Include="MvvmCross.Localization">
-      <HintPath>..\packages\MvvmCross.Binding.4.1.4\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
-    </Reference>
     <Reference Include="MvvmCross.Platform.iOS">
       <HintPath>..\packages\MvvmCross.Platform.4.1.5\lib\Xamarin.iOS10\MvvmCross.Platform.iOS.dll</HintPath>
     </Reference>
@@ -141,6 +144,39 @@
     </Reference>
     <Reference Include="Cheesebaron.MvxPlugins.Connectivity.Touch">
       <HintPath>..\packages\Cheesebaron.MvxPlugins.Connectivity.0.0.2\lib\Xamarin.iOS10\Cheesebaron.MvxPlugins.Connectivity.Touch.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS">
+      <HintPath>..\packages\MvvmCross.Core.4.1.5\lib\Xamarin.iOS10\MvvmCross.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Core">
+      <HintPath>..\packages\MvvmCross.Core.4.1.5\lib\Xamarin.iOS10\MvvmCross.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding.iOS">
+      <HintPath>..\packages\MvvmCross.Binding.4.1.5\lib\Xamarin.iOS10\MvvmCross.Binding.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.Binding.4.1.5\lib\Xamarin.iOS10\MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.Binding.4.1.5\lib\Xamarin.iOS10\MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS.Support">
+      <HintPath>..\packages\MvvmCross.iOS.Support.4.1.5\lib\Xamarin.iOS10\MvvmCross.iOS.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.iOS.Support.JASidePanels">
+      <HintPath>..\packages\MvvmCross.iOS.Support.JASidePanels.4.1.5\lib\Xamarin.iOS10\MvvmCross.iOS.Support.JASidePanels.dll</HintPath>
+    </Reference>
+    <Reference Include="JASidePanels">
+      <HintPath>..\packages\MvvmCross.iOS.Support.JASidePanels.4.1.5\lib\Xamarin.iOS10\JASidePanels.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Json">
+      <HintPath>..\packages\MvvmCross.Plugin.Json.4.1.5\lib\Xamarin.iOS10\MvvmCross.Plugins.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.FluentLayouts.Touch">
+      <HintPath>..\packages\Cirrious.FluentLayout.2.5.0\lib\Xamarin.iOS10\Cirrious.FluentLayouts.Touch.dll</HintPath>
     </Reference>
     <Reference Include="MvvmCross.Plugins.File">
       <HintPath>..\packages\MvvmCross.Plugin.File.4.1.5\lib\Xamarin.iOS10\MvvmCross.Plugins.File.dll</HintPath>
@@ -166,6 +202,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Menu\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Network\" />
+    <Folder Include="Services\Message\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

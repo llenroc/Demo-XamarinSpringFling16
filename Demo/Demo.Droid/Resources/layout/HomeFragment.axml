@@ -50,12 +50,12 @@
         android:id="@+id/errorTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_marginLeft="@dimen/element_margin_medium"
         android:layout_marginRight="@dimen/element_margin_medium"
-        local:MvxBind="Visibility Visibility(IsErrorMsgVisible)"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        local:MvxBind="Visibility Visibility(IsErrorMsgVisible); Text ErrorMsg"
+        android:gravity="center" />
     <include
         layout="@layout/loader" />
 </RelativeLayout>

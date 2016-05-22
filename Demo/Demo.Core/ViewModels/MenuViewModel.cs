@@ -7,7 +7,7 @@ namespace Demo.Core.ViewModels
     /// Define los comandos para  las opciones del menú hamburguesa.
     /// </summary>
     public class MenuViewModel
-        : MvxViewModel
+        : BaseViewModel
     {
         public MenuViewModel()
         {
