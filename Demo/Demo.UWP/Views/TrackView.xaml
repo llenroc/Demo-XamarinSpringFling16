@@ -26,7 +26,9 @@
                    Margin="0,0,0,12"/>
             <AutoSuggestBox Text="{Binding TrackParam, Mode=TwoWay}"
                             Grid.Row="1" 
+                            QueryIcon="Find"
                             PlaceholderText="Ingresa una canción"
+                            QuerySubmitted="AutoSuggestBox_QuerySubmitted"
                             Margin="0,12"/>
             <AutoSuggestBox Grid.Row="2" 
                             QueryIcon="Find"

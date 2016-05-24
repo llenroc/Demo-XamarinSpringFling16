@@ -93,7 +93,7 @@ namespace Demo.Core.ViewModels
                     }
                     if (string.IsNullOrEmpty(TrackParam) || string.IsNullOrEmpty(ArtistParam))
                     {
-                        await MessageService.AlertAsync("Ingresa un criterio de búsqueda válido", "Aviso", "OK");
+                        await MessageService.AlertAsync("Debes ingresar criterios válidos.", "Aviso", "OK");
                         return;
                     }
 
