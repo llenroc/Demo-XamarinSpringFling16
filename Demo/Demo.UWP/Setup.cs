@@ -46,6 +46,5 @@ namespace Demo.UWP
             base.InitializeLastChance();
             MvvmCross.Plugins.Visibility.PluginLoader.Instance.EnsureLoaded();
         }
-        
     }
 }

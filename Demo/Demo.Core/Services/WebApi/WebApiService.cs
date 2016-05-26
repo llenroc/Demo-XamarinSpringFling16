@@ -19,18 +19,6 @@ namespace Demo.Core.Services.WebApi
         /// </summary>
         private INetworkService NetworkService { get; set; }
         
-
-        /// <summary>
-        /// Interfaz de acceso al TextSource
-        /// </summary>
-        public IMvxLanguageBinder TextSource
-        {
-            get
-            {
-                return new MvxLanguageBinder("MusicApp", "CommonStrings");
-            }
-        }
-
         #endregion
 
         public WebApiService(INetworkService networkService)

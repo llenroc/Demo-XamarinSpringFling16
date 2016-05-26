@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Demo.Core.ViewModels
 {
     /// <summary>
-    /// ViewModel Base que implementa métodos de navegación, y propiedades para mostrar loader y consumir servicios de la API.
+    /// ViewModel Base que implementa métodos de navegación, y propiedades para mostrar loader, manejo de red, alertas y consumo de servicios.
     /// </summary>
     public class BaseViewModel : MvxViewModel
     {
