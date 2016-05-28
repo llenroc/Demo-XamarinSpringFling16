@@ -38,19 +38,19 @@ namespace Demo.iOS.Menu
 			set.Bind(homeButton).To(vm => vm.HomeCommand);
 
 			var artistButton = new UIButton(new CGRect(0, 100, 320, 40));
-			artistButton.SetTitle("Settings", UIControlState.Normal);
+			artistButton.SetTitle("Artistas", UIControlState.Normal);
 			artistButton.BackgroundColor = UIColor.White;
 			artistButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
 			set.Bind(artistButton).To(vm => vm.ArtistCommand);
 
 			var albumButton = new UIButton(new CGRect(0, 100, 320, 40));
-			albumButton.SetTitle("Help & Feedback", UIControlState.Normal);
+			albumButton.SetTitle("Albumes", UIControlState.Normal);
 			albumButton.BackgroundColor = UIColor.White;
 			albumButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
 			set.Bind(albumButton).To(vm => vm.AlbumCommand);
 
 			var trackButton = new UIButton(new CGRect(0, 100, 320, 40));
-			trackButton.SetTitle("Help & Feedback", UIControlState.Normal);
+			trackButton.SetTitle("Canciones", UIControlState.Normal);
 			trackButton.BackgroundColor = UIColor.White;
 			trackButton.SetTitleColor(UIColor.Black, UIControlState.Normal);
 			set.Bind(trackButton).To(vm => vm.TrackCommand);
