@@ -50,6 +50,12 @@ namespace Demo.Droid.Views.Fragments
 					ImageService.Instance.LoadUrl(ViewModel.Artist.Image).Into(Image);
                 }
             }
+            else
+            {
+                if (ViewModel.ArtistParam != null)
+                    ImageService.Instance.LoadUrl(ViewModel.ArtistParam.Image).Into(Image);
+                
+            }
 
             this.Activity.Title = ViewModel.ArtistParam.Name;
         }

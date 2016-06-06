@@ -14,7 +14,7 @@
         android:padding="8dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        local:MvxBind="ImageUrl Image" />
+        local:MvxBind="ImageUrl Image, Mode=OneWay" />
     <TextView
         android:id="@+id/albumTextView"
         android:layout_toRightOf="@id/artistImageView"

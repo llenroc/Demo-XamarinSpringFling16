@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="@dimen/element_margin_small"
-            local:MvxBind="ItemsSource Artists, Mode=OneWay; SelectedItem SelectedArtist, Mode=TwoWay; ItemClick SelectedArtistCommand"
+            local:MvxBind="ItemsSource Artists; SelectedItem SelectedArtist, Mode=TwoWay; ItemClick SelectedArtistCommand"
             local:MvxItemTemplate="@layout/list_artists_item" />
     </LinearLayout>
     <include
