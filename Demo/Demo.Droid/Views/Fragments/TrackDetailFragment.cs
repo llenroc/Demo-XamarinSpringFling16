@@ -66,6 +66,10 @@ namespace Demo.Droid.Views.Fragments
             {
                 ShowLoader(ViewModel.IsLoading);
             }
+			if (e.PropertyName == nameof(ViewModel.Track))
+			{
+				ImageService.Instance.LoadUrl(ViewModel.Track.Image).Into(Image);
+			}
         }
 
         protected void ShowLoader(bool IsLoading)

@@ -52,5 +52,12 @@ namespace Demo.Droid
             Mvx.RegisterSingleton<INetworkService>(() => new DroidNetworkService());
         }
 
+		protected override void InitializeLastChance()
+		{
+			base.InitializeLastChance();
+			MvvmCross.Plugins.File.PluginLoader.Instance.EnsureLoaded();
+			MvvmCross.Plugins.DownloadCache.PluginLoader.Instance.EnsureLoaded();
+		}
+
     }
 }

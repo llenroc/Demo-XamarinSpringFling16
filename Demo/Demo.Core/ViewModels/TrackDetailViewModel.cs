@@ -84,12 +84,12 @@ namespace Demo.Core.ViewModels
         /// Se ejecuta al inicio para obtener los parámetros enviados desde TrackViewModel
         /// </summary>
         /// <param name="track">Canción seleccionado.</param>
-        public async void Init(MTrack track)
+        public async void Init(MTrack SelectedTrack)
         {
-            if (track == null || string.IsNullOrEmpty(track.Name) || string.IsNullOrEmpty(track.ArtistName))
+            if (SelectedTrack == null || string.IsNullOrEmpty(SelectedTrack.Name) || string.IsNullOrEmpty(SelectedTrack.ArtistName))
                 return;
 
-            this.TrackParam = track;
+            this.TrackParam = SelectedTrack;
             await LoadTrackDetail();
         }
 
@@ -103,9 +103,9 @@ namespace Demo.Core.ViewModels
             var data = await DataService.GetTrackInfo(TrackParam.Name, TrackParam.ArtistName);
             if (data != null)
             {
+				data.Image = TrackParam.Image;
                 Track = new MTrack();
                 Track = data;
-                Track.Image = TrackParam.Image;
             }
             else
             {

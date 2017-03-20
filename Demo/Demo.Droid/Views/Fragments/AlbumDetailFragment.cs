@@ -26,14 +26,12 @@ namespace Demo.Droid.Views.Fragments
     {
 		protected override int FragmentId => Resource.Layout.AlbumDetailFragment;
 
-		public ImageViewAsync Image;
         private View loader;
         private ProgressBar progress;
         
         public override  void OnActivityCreated(Bundle savedInstanceState)
         {
             base.OnActivityCreated(savedInstanceState);
-			ImageService.Instance.LoadUrl(ViewModel.Album.Image).Into(Image);
             this.Activity.Title = ViewModel.AlbumParam.Name;
         }
 
@@ -42,7 +40,6 @@ namespace Demo.Droid.Views.Fragments
             var view = base.OnCreateView(inflater, container, savedInstanceState);
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
-			Image = view.FindViewById<ImageViewAsync>(Resource.Id.albumImageView);
             loader = view.FindViewById<View>(Resource.Id.loader);
             progress = view.FindViewById<ProgressBar>(Resource.Id.progressBar);
 
@@ -54,7 +51,7 @@ namespace Demo.Droid.Views.Fragments
             if (e.PropertyName == nameof(ViewModel.IsLoading))
             {
                 ShowLoader(ViewModel.IsLoading);
-            }
+			}
         }
 
         protected void ShowLoader(bool IsLoading)

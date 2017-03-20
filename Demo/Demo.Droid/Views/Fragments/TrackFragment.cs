@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using Demo.Core.ViewModels;
 using MvvmCross.Droid.Shared.Attributes;
@@ -51,7 +52,7 @@ namespace Demo.Droid.Views.Fragments
 		{
 			// Borramos el contenido de nuestra lista Tracks al navegar a otra pantalla
 			base.OnDestroyView();
-			this.ViewModel.Tracks = null;
+			ViewModel.Tracks = null;
 		}
 
         private void SearchView_QueryTextSubmit(object sender, SearchView.QueryTextSubmitEventArgs e)
@@ -59,6 +60,9 @@ namespace Demo.Droid.Views.Fragments
             ViewModel.TrackParam = trackSearchView.Query;
             ViewModel.ArtistParam = artistSearchView.Query;
             ViewModel.SearchTrackCommand.Execute();
+
+			InputMethodManager imm = (InputMethodManager)Context.GetSystemService(Context.InputMethodService);
+			imm.HideSoftInputFromWindow(artistSearchView.WindowToken, 0);
         }
         
         private void ViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

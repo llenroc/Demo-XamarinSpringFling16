@@ -8,6 +8,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using Demo.Core.ViewModels;
 using MvvmCross.Droid.Shared.Attributes;
@@ -55,6 +56,9 @@ namespace Demo.Droid.Views.Fragments
         {            
             ViewModel.ParamSearch = searchView.Query;
             ViewModel.SearchArtistCommand.Execute();
+
+			InputMethodManager imm = (InputMethodManager)Context.GetSystemService(Context.InputMethodService);
+			imm.HideSoftInputFromWindow(searchView.WindowToken, 0);
         }
 
         private void ViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

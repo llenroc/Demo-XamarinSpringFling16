@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Android.App;
 using Android.Views;
 using Android.Widget;
+using MvvmCross.Binding.BindingContext;
 
 namespace Demo.Droid
 {
@@ -77,6 +78,13 @@ namespace Demo.Droid
             changed.PropertyChanged += (sender, e) =>  {
                 var test = e.PropertyName;
             };
+        }
+        
+        public void Include(MvxTaskBasedBindingContext context)
+        {
+            context.Dispose();
+            var context2 = new MvxTaskBasedBindingContext();
+            context2.Dispose();
         }
     }
 }

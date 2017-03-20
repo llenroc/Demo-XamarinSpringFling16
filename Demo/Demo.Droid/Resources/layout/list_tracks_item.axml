@@ -7,7 +7,7 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:paddingBottom="10dp">
-    <FFImageLoading.Views.ImageViewAsync
+    <Mvx.MvxImageView
         android:id="@+id/trackImageView"
         android:layout_width="120dp"
         android:layout_height="120dp"

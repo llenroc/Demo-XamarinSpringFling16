@@ -11,12 +11,19 @@
         android:weightSum="10">
         <include
             layout="@layout/toolbar" />
-        <FFImageLoading.Views.ImageViewAsync
+        <Mvx.MvxImageView
             android:id="@+id/albumImageView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:paddingTop="@dimen/element_margin_small" />
+            android:paddingTop="@dimen/element_margin_small"
+            local:MvxBind="ImageUrl Album.Image" />
+    <!--<FFImageLoading.Views.ImageViewAsync
+            android:id="@+id/albumImageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:paddingTop="@dimen/element_margin_small" />-->
         <TextView
             android:text="Descripción"
             android:textAppearance="?android:attr/textAppearanceMedium"
